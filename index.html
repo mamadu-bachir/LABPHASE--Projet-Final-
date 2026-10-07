@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NexaWeb — Des expériences web simples et modernes, sans framework</title>
+  <meta name="description" content="NexaWeb conçoit des sites vitrines rapides, accessibles et élégants en HTML, CSS et JavaScript purs. Zéro framework, zéro superflu." />
+  <meta name="theme-color" content="#f4f1ea" />
+  <meta property="og:title" content="NexaWeb — Des expériences web simples et modernes" />
+  <meta property="og:description" content="Sites vitrines rapides et élégants, construits en HTML, CSS et JavaScript purs." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function () {
+      var t = localStorage.getItem('nexa-theme');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav" id="top">
+    <div class="nav__inner">
+      <a href="#top" class="logo" aria-label="NexaWeb, retour en haut">
+        <span class="logo__mark">N</span><span class="logo__text">Nexa<em>Web</em></span>
+      </a>
+      <nav class="nav__links" id="menu" aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#methode">Méthode</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="nav__cta-mobile">Démarrer un projet</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="theme-toggle" type="button" aria-label="Basculer le thème clair / sombre">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11z"/></svg>
+        </button>
+        <a href="#contact" class="btn btn--ink btn--sm nav__cta">Démarrer un projet</a>
+        <button class="burger" type="button" aria-controls="menu" aria-expanded="false" aria-label="Ouvrir le menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="eyebrow load" style="--d:0"><span class="dot"></span> Studio web indépendant · Disponible pour nouveaux projets</p>
+        <h1 class="hero__title">
+          <span class="load" style="--d:1">Le web,</span>
+          <span class="load" style="--d:2"><em>sans</em> le</span>
+          <span class="load" style="--d:3">superflu<span class="accent">.</span></span>
+        </h1>
+        <p class="hero__lead load" style="--d:4">
+          NexaWeb crée des expériences web <strong>simples et modernes</strong>, écrites à la main en HTML, CSS et JavaScript.
+          Pas de framework, pas de dépendances : juste des sites rapides, accessibles et faits pour durer.
+        </p>
+        <div class="hero__ctas load" style="--d:5">
+          <a href="#contact" class="btn btn--accent">Parlons de votre projet <span aria-hidden="true">→</span></a>
+          <a href="#realisations" class="btn btn--ghost">Voir nos réalisations</a>
+        </div>
+        <ul class="hero__proof load" style="--d:6">
+          <li><strong>100</strong><span>Score Lighthouse</span></li>
+          <li><strong>&lt;50&nbsp;Ko</strong><span>Poids moyen</span></li>
+          <li><strong>0</strong><span>Framework</span></li>
+        </ul>
+      </div>
+
+      <!-- Interactive playground -->
+      <div class="playground load" style="--d:3" aria-label="Démo interactive : modifiez le design en direct">
+        <div class="playground__bar">
+          <span class="dots"><i></i><i></i><i></i></span>
+          <div class="tabs" role="tablist" aria-label="Langage">
+            <button role="tab" aria-selected="true" data-tab="html">index.html</button>
+            <button role="tab" aria-selected="false" data-tab="css">style.css</button>
+            <button role="tab" aria-selected="false" data-tab="js">app.js</button>
+          </div>
+        </div>
+        <div class="playground__body">
+          <pre class="code" aria-live="polite"><code id="code-view"></code></pre>
+          <div class="preview" id="preview">
+            <div class="pv-card">
+              <span class="pv-tag">Nouveau</span>
+              <h3 class="pv-title">Votre marque, en ligne.</h3>
+              <p class="pv-text">Rapide. Lisible. Sans détour.</p>
+              <button class="pv-btn" type="button" id="pv-btn">Cliquez-moi <span id="pv-count">0</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="playground__controls">
+          <label>Teinte <input type="range" min="0" max="360" value="16" id="ctl-hue" /></label>
+          <label>Arrondi <input type="range" min="0" max="32" value="14" id="ctl-radius" /></label>
+          <label>Espacement <input type="range" min="12" max="40" value="24" id="ctl-space" /></label>
+        </div>
+        <p class="playground__hint">↑ Jouez avec les réglages : le code se met à jour en direct.</p>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>HTML sémantique</span><span>✦</span><span>CSS moderne</span><span>✦</span><span>JavaScript natif</span><span>✦</span><span>Accessibilité AA</span><span>✦</span><span>SEO soigné</span><span>✦</span><span>Éco-conception</span><span>✦</span>
+        <span>HTML sémantique</span><span>✦</span><span>CSS moderne</span><span>✦</span><span>JavaScript natif</span><span>✦</span><span>Accessibilité AA</span><span>✦</span><span>SEO soigné</span><span>✦</span><span>Éco-conception</span><span>✦</span>
+      </div>
+    </div>
+
+    <!-- MANIFESTO -->
+    <section class="manifesto section">
+      <p class="label reveal">01 — Manifeste</p>
+      <p class="manifesto__text reveal">
+        Chaque kilo-octet compte. Chaque milliseconde aussi. Nous croyons qu'un bon site n'a pas besoin
+        d'une usine logicielle pour exister : il a besoin d'<em>intention</em>, de <em>soin</em> et des
+        technologies natives du web — celles qui marcheront encore dans dix ans.
+      </p>
+      <div class="stats">
+        <div class="stat reveal"><span class="stat__num" data-count="120" data-suffix="+">0</span><span class="stat__label">sites livrés</span></div>
+        <div class="stat reveal"><span class="stat__num" data-count="0.6" data-decimals="1" data-suffix="&nbsp;s">0</span><span class="stat__label">chargement moyen</span></div>
+        <div class="stat reveal"><span class="stat__num" data-count="92" data-suffix="&nbsp;%">0</span><span class="stat__label">de CO₂ en moins*</span></div>
+        <div class="stat reveal"><span class="stat__num" data-count="4.9" data-decimals="1" data-suffix="/5">0</span><span class="stat__label">satisfaction client</span></div>
+      </div>
+      <p class="footnote">* Estimation comparée à un site vitrine moyen construit avec un framework JavaScript.</p>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services section" id="services">
+      <div class="section__head">
+        <p class="label reveal">02 — Services</p>
+        <h2 class="reveal">Ce que nous <em>fabriquons</em></h2>
+      </div>
+      <div class="services__grid">
+        <article class="service reveal">
+          <span class="service__num">/01</span>
+          <h3>Sites vitrines</h3>
+          <p>Une présence en ligne claire et mémorable pour présenter votre activité, vos offres et votre histoire.</p>
+          <ul><li>Design sur-mesure</li><li>Responsive</li><li>SEO de base</li></ul>
+          <span class="service__arrow" aria-hidden="true">↗</span>
+        </article>
+        <article class="service reveal">
+          <span class="service__num">/02</span>
+          <h3>Landing pages</h3>
+          <p>Des pages de conversion ultra-rapides pour vos lancements, campagnes et événements.</p>
+          <ul><li>Copywriting</li><li>A/B ready</li><li>Formulaires</li></ul>
+          <span class="service__arrow" aria-hidden="true">↗</span>
+        </article>
+        <article class="service reveal">
+          <span class="service__num">/03</span>
+          <h3>Interactions sur-mesure</h3>
+          <p>Animations, micro-interactions et composants en JavaScript natif, légers et accessibles.</p>
+          <ul><li>Animations CSS</li><li>Web APIs</li><li>Zéro dépendance</li></ul>
+          <span class="service__arrow" aria-hidden="true">↗</span>
+        </article>
+        <article class="service reveal">
+          <span class="service__num">/04</span>
+          <h3>Audit &amp; refonte</h3>
+          <p>Votre site est lent ? Nous l'analysons et le reconstruisons plus léger, plus rapide, plus durable.</p>
+          <ul><li>Lighthouse</li><li>Accessibilité</li><li>Éco-index</li></ul>
+          <span class="service__arrow" aria-hidden="true">↗</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- COMPARATOR -->
+    <section class="compare section">
+      <div class="compare__inner">
+        <div>
+          <p class="label reveal">03 — La différence</p>
+          <h2 class="reveal">Moins de code,<br /><em>plus</em> de vitesse.</h2>
+          <p class="reveal">Comparez le poids d'une page d'accueil typique. Basculez pour voir ce que vos visiteurs téléchargent réellement.</p>
+          <div class="switch reveal" role="radiogroup" aria-label="Type de construction">
+            <button type="button" role="radio" aria-checked="false" data-stack="framework">Avec framework</button>
+            <button type="button" role="radio" aria-checked="true" data-stack="nexa">Avec NexaWeb</button>
+            <span class="switch__pill" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="meter reveal" id="meter">
+          <div class="meter__row"><span>JavaScript</span><div class="bar"><i data-fw="78" data-nx="6"></i></div><b data-fw="1 240 Ko" data-nx="9 Ko"></b></div>
+          <div class="meter__row"><span>CSS</span><div class="bar"><i data-fw="30" data-nx="10"></i></div><b data-fw="310 Ko" data-nx="16 Ko"></b></div>
+          <div class="meter__row"><span>Requêtes</span><div class="bar"><i data-fw="64" data-nx="12"></i></div><b data-fw="48" data-nx="7"></b></div>
+          <div class="meter__row"><span>Interactif en</span><div class="bar"><i data-fw="90" data-nx="9"></i></div><b data-fw="4,8 s" data-nx="0,5 s"></b></div>
+          <div class="meter__total">
+            <span>Poids total</span>
+            <strong id="meter-total">42 Ko</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process section" id="methode">
+      <div class="section__head">
+        <p class="label reveal">04 — Méthode</p>
+        <h2 class="reveal">Quatre étapes, <em>zéro</em> surprise.</h2>
+      </div>
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step__n">1</span>
+          <h3>Écoute</h3>
+          <p>Un atelier d'une heure pour comprendre vos objectifs, votre audience et votre ton.</p>
+          <span class="step__time">Semaine 1</span>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">2</span>
+          <h3>Design</h3>
+          <p>Maquettes interactives, itérées avec vous jusqu'à ce que tout sonne juste.</p>
+          <span class="step__time">Semaines 2–3</span>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">3</span>
+          <h3>Code</h3>
+          <p>Intégration à la main en HTML, CSS et JS. Testée sur tous les écrans et navigateurs.</p>
+          <span class="step__time">Semaines 3–4</span>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">4</span>
+          <h3>Lancement</h3>
+          <p>Mise en ligne, formation et suivi. Votre site est à vous, sans abonnement imposé.</p>
+          <span class="step__time">Semaine 5</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- WORK -->
+    <section class="work section" id="realisations">
+      <div class="section__head section__head--row">
+        <div>
+          <p class="label reveal">05 — Réalisations</p>
+          <h2 class="reveal">Quelques <em>projets</em> récents</h2>
+        </div>
+        <div class="filters reveal" role="group" aria-label="Filtrer les projets">
+          <button type="button" class="is-active" data-filter="all">Tous</button>
+          <button type="button" data-filter="vitrine">Vitrine</button>
+          <button type="button" data-filter="landing">Landing</button>
+          <button type="button" data-filter="refonte">Refonte</button>
+        </div>
+      </div>
+      <div class="work__grid" id="work-grid"></div>
+      <p class="work__empty" id="work-empty" hidden>Aucun projet dans cette catégorie pour le moment — revenez bientôt.</p>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="quotes section" aria-roledescription="carrousel" aria-label="Témoignages clients">
+      <p class="label reveal">06 — Ils en parlent</p>
+      <div class="quotes__stage reveal">
+        <span class="quotes__mark" aria-hidden="true">“</span>
+        <div class="quotes__viewport">
+          <figure class="quote is-active">
+            <blockquote>Notre ancien site mettait 6 secondes à s'afficher, même en 4G à Thiès. Celui de NexaWeb s'ouvre avant même qu'on ait fini de cliquer. Nos demandes de devis ont doublé.</blockquote>
+            <figcaption><strong>Moussa Ndiaye</strong> — Atelier Ndiaye, menuiserie</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>Une équipe qui écoute, qui conseille, et qui livre à l'heure. Le site est beau, simple à faire évoluer, et on n'a aucun abonnement caché.</blockquote>
+            <figcaption><strong>Fatou Sow</strong> — Fondatrice, Teranga Couture</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>J'avais peur qu'un site « sans framework » soit basique. C'est tout l'inverse : les animations sont fluides et tout fonctionne parfaitement sur mobile.</blockquote>
+            <figcaption><strong>Ousmane Fall</strong> — Gérant, Restaurant Le Thiof, Saint-Louis</figcaption>
+          </figure>
+        </div>
+        <div class="quotes__nav">
+          <button type="button" class="round" data-dir="-1" aria-label="Témoignage précédent">←</button>
+          <div class="quotes__dots" role="tablist" aria-label="Choisir un témoignage"></div>
+          <button type="button" class="round" data-dir="1" aria-label="Témoignage suivant">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing section" id="tarifs">
+      <div class="section__head section__head--center">
+        <p class="label reveal">07 — Tarifs</p>
+        <h2 class="reveal">Des prix <em>clairs</em>, comme notre code.</h2>
+        <div class="billing reveal">
+          <span id="lbl-once" class="is-on">Paiement unique</span>
+          <button type="button" class="toggle" id="billing-toggle" role="switch" aria-checked="false" aria-label="Afficher les prix en mensualités"><span></span></button>
+          <span id="lbl-monthly">En 6 mensualités</span>
+        </div>
+      </div>
+      <div class="plans">
+        <article class="plan reveal">
+          <h3>Essentiel</h3>
+          <p class="plan__desc">Une page soignée pour exister en ligne.</p>
+          <p class="plan__price"><span class="amount" data-once="585&nbsp;000" data-monthly="97&nbsp;500">585&nbsp;000</span><span class="unit" data-once="FCFA HT" data-monthly="FCFA / mois">FCFA HT</span></p>
+          <ul>
+            <li>Landing page sur-mesure</li>
+            <li>Formulaire de contact</li>
+            <li>Responsive &amp; accessible</li>
+            <li>Mise en ligne incluse</li>
+          </ul>
+          <a href="#contact" class="btn btn--ghost btn--block" data-plan="Essentiel">Choisir Essentiel</a>
+        </article>
+        <article class="plan plan--featured reveal">
+          <span class="plan__badge">Le plus choisi</span>
+          <h3>Vitrine</h3>
+          <p class="plan__desc">Le site complet pour présenter votre activité.</p>
+          <p class="plan__price"><span class="amount" data-once="1&nbsp;575&nbsp;000" data-monthly="262&nbsp;500">1&nbsp;575&nbsp;000</span><span class="unit" data-once="FCFA HT" data-monthly="FCFA / mois">FCFA HT</span></p>
+          <ul>
+            <li>Jusqu'à 6 pages</li>
+            <li>Animations &amp; interactions</li>
+            <li>SEO technique complet</li>
+            <li>Formation à la mise à jour</li>
+            <li>3 mois de support</li>
+          </ul>
+          <a href="#contact" class="btn btn--accent btn--block" data-plan="Vitrine">Choisir Vitrine</a>
+        </article>
+        <article class="plan reveal">
+          <h3>Sur-mesure</h3>
+          <p class="plan__desc">Pour les projets ambitieux et singuliers.</p>
+          <p class="plan__price"><span class="amount" data-once="Sur devis" data-monthly="Sur devis">Sur devis</span><span class="unit" data-once="" data-monthly=""></span></p>
+          <ul>
+            <li>Pages illimitées</li>
+            <li>Composants interactifs avancés</li>
+            <li>Audit performance &amp; éco-index</li>
+            <li>Support prioritaire 12 mois</li>
+          </ul>
+          <a href="#contact" class="btn btn--ghost btn--block" data-plan="Sur-mesure">Demander un devis</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq section" id="faq">
+      <div class="faq__inner">
+        <div>
+          <p class="label reveal">08 — FAQ</p>
+          <h2 class="reveal">Questions <em>fréquentes</em></h2>
+          <p class="reveal">Une autre question ? <a href="#contact" class="link">Écrivez-nous</a>, nous répondons sous 24&nbsp;h.</p>
+        </div>
+        <div class="faq__list">
+          <details class="reveal" open>
+            <summary>Pourquoi ne pas utiliser de framework ?</summary>
+            <p>Pour un site vitrine, un framework ajoute souvent des centaines de kilo-octets inutiles. Le HTML, le CSS et le JavaScript modernes suffisent largement — et ils garantissent un site plus rapide, plus durable et plus simple à maintenir.</p>
+          </details>
+          <details class="reveal">
+            <summary>Pourrai-je modifier mon site moi-même ?</summary>
+            <p>Oui. Le code est propre, commenté et organisé. Nous vous formons à faire les mises à jour courantes (textes, images) et nous restons disponibles pour le reste.</p>
+          </details>
+          <details class="reveal">
+            <summary>Combien de temps faut-il pour créer un site ?</summary>
+            <p>Comptez une à deux semaines pour une landing page, et environ cinq semaines pour un site vitrine complet, de l'atelier de lancement à la mise en ligne.</p>
+          </details>
+          <details class="reveal">
+            <summary>L'hébergement est-il inclus ?</summary>
+            <p>Nous déployons votre site sur une infrastructure CDN mondiale. Pour un site statique, l'hébergement est généralement gratuit ou presque, et nous vous accompagnons dans sa configuration.</p>
+          </details>
+          <details class="reveal">
+            <summary>Mon site sera-t-il bien référencé ?</summary>
+            <p>Un site léger et sémantique est un excellent point de départ pour le SEO. Nous soignons les balises, la structure, les performances et l'accessibilité — tous des signaux appréciés des moteurs de recherche.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact section" id="contact">
+      <div class="contact__inner">
+        <div class="contact__intro">
+          <p class="label reveal">09 — Contact</p>
+          <h2 class="reveal">Un projet&nbsp;?<br /><em>Parlons-en.</em></h2>
+          <p class="reveal">Décrivez-nous votre idée en quelques lignes. Nous revenons vers vous sous 24&nbsp;h ouvrées avec une première proposition.</p>
+          <ul class="contact__meta reveal">
+            <li><span>Email</span><a href="mailto:bonjour@nexaweb.com">bonjour@nexaweb.com</a></li>
+            <li><span>Basés à</span>Dakar, Sénégal — partout à distance</li>
+            <li><span>Réponse</span>Sous 24 h ouvrées</li>
+          </ul>
+        </div>
+
+        <form class="form reveal" name="contact" method="POST" action="/merci" data-netlify="true" netlify-honeypot="bot-field" novalidate id="contact-form">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hp"><label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
+          <div class="form__row">
+            <div class="field">
+              <label for="f-name">Nom complet</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required minlength="2" placeholder="Adama Diop" />
+              <span class="field__error" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="adama@entreprise.com" />
+              <span class="field__error" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-company">Entreprise <span class="opt">(facultatif)</span></label>
+            <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Atelier Menuiserie" />
+          </div>
+
+          <fieldset class="field">
+            <legend>Type de projet</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="project" value="Site vitrine" checked /><span>Site vitrine</span></label>
+              <label class="chip"><input type="radio" name="project" value="Landing page" /><span>Landing page</span></label>
+              <label class="chip"><input type="radio" name="project" value="Refonte" /><span>Refonte</span></label>
+              <label class="chip"><input type="radio" name="project" value="Autre" /><span>Autre</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Formule envisagée</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="plan" value="Essentiel" /><span>Essentiel</span></label>
+              <label class="chip"><input type="radio" name="plan" value="Vitrine" checked /><span>Vitrine</span></label>
+              <label class="chip"><input type="radio" name="plan" value="Sur-mesure" /><span>Sur-mesure</span></label>
+              <label class="chip"><input type="radio" name="plan" value="Je ne sais pas" /><span>Je ne sais pas</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="f-message">Votre message</label>
+            <textarea id="f-message" name="message" rows="5" required minlength="20" maxlength="1500" placeholder="Parlez-nous de votre activité, de vos objectifs et de vos délais…"></textarea>
+            <span class="field__count" aria-hidden="true"><span id="msg-count">0</span>/1500</span>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" name="consent" value="oui" required />
+            <span>J'accepte que mes informations soient utilisées pour être recontacté·e au sujet de mon projet.</span>
+          </label>
+          <span class="field__error field__error--consent" aria-live="polite"></span>
+
+          <button type="submit" class="btn btn--accent btn--block btn--lg" id="submit-btn">
+            <span class="btn__label">Envoyer ma demande</span>
+            <span class="btn__spinner" aria-hidden="true"></span>
+          </button>
+          <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+
+          <div class="form__success" id="form-success" hidden tabindex="-1">
+            <div class="check" aria-hidden="true"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg></div>
+            <h3>Message bien reçu&nbsp;!</h3>
+            <p>Merci <span id="success-name"></span>. Nous revenons vers vous sous 24&nbsp;h ouvrées.</p>
+            <button type="button" class="btn btn--ghost" id="form-reset">Envoyer un autre message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__big" aria-hidden="true">Nexa<em>Web</em></div>
+    <div class="footer__inner">
+      <p>© <span id="year">2026</span> NexaWeb — Des expériences web simples et modernes.</p>
+      <p class="footer__weight">Ce site pèse moins de <strong>60&nbsp;Ko</strong> (hors polices). Fait main, sans framework.</p>
+      <nav aria-label="Liens de pied de page">
+        <a href="#services">Services</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Revenir en haut de la page">↑</button>
+
+  <dialog class="modal" id="project-modal" aria-labelledby="modal-title">
+    <div class="modal__visual" id="modal-visual"></div>
+    <div class="modal__body">
+      <p class="label" id="modal-cat"></p>
+      <h3 id="modal-title"></h3>
+      <p id="modal-desc"></p>
+      <ul class="modal__stats" id="modal-stats"></ul>
+      <button type="button" class="btn btn--ink" data-close>Fermer</button>
+    </div>
+    <button type="button" class="modal__x round" data-close aria-label="Fermer la fenêtre">✕</button>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
